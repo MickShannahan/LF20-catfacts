@@ -1,6 +1,5 @@
 <template>
   <div class="home container-fluid">
-    <ActiveFact />
     <div class="row bg-light p-3">
       <h2 class="pl-3">
         Catuurrday
@@ -17,10 +16,9 @@ import { AppState } from '../AppState'
 import { computed, onMounted } from 'vue'
 import { factService } from '../services/CatService'
 import CatComponent from '../components/CatComponent'
-import ActiveFact from '../components/ActiveFact'
 export default {
   name: 'Home',
-  components: { CatComponent, ActiveFact },
+  components: { CatComponent },
   setup() {
     onMounted(() =>
       factService.getFacts())

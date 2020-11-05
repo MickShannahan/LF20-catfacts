@@ -1,5 +1,5 @@
 import { AppState } from '../AppState'
-import { api, pictureApi } from './AxiosService'
+import { api } from './AxiosService'
 
 class FactService {
   async getFacts() {
@@ -10,16 +10,6 @@ class FactService {
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err)
-    }
-  }
-
-  async getCatPicture() {
-    try {
-      const res = await pictureApi.get('search')
-      console.log(res.data[0].url)
-      AppState.catPicture = res.data[0].url
-    } catch (error) {
-      console.error(error)
     }
   }
 }
