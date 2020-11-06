@@ -1,6 +1,9 @@
 <template>
   <div class="Cat card border-0 col-4 p-2 bg-transparent text-light">
     <div class=" row justify-content-center">
+      <div class="col-2">
+        <img :src="'https://thiscatdoesnotexist.com/?number='+ indexProp" class="img-fluid rounded">
+      </div>
       <div class="col-10 bg-primary rounded shadow-sm p-3" @click="getBigFact">
         {{ factProp.text }}
       </div>
@@ -15,7 +18,7 @@ import $ from 'jquery'
 import { AppState } from '../AppState'
 export default {
   name: 'Cat',
-  props: ['factProp'],
+  props: ['factProp', 'indexProp'],
   setup(props) {
     const state = reactive({
       fact: props.factProp

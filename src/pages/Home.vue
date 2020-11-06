@@ -7,7 +7,7 @@
       </h2>
     </div>
     <div class="row p-5">
-      <CatComponent v-for="fact in facts" :key="fact" :fact-prop="fact" />
+      <CatComponent v-for="(fact, index ) in facts" :key="fact" :fact-prop="fact" :index-prop="index" />
     </div>
   </div>
 </template>
