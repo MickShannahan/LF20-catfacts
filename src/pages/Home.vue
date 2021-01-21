@@ -6,7 +6,7 @@
         Catuurrday
       </h2>
     </div>
-    <div class="row p-5">
+    <div class="row p-5 ">
       <CatComponent v-for="(fact, index ) in facts" :key="fact" :fact-prop="fact" :index-prop="index" />
     </div>
   </div>
@@ -23,8 +23,7 @@ export default {
   components: { CatComponent, ActiveFact },
   setup() {
     onMounted(() =>
-      catService.getFacts(),
-    catService.getFacts())
+      catService.getFacts())
     return {
       facts: computed(() => AppState.facts)
     }
