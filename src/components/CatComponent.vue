@@ -4,16 +4,16 @@
       <div class="col-3 mr-0 pr-0 pl-4">
         <img :src="state.catImage + indexProp" class="img-fluid rounded">
       </div>
-      <div class="col bg-primary rounded shadow-sm p-3" @click="getBigFact(factProp.id)">
+      <div class="col bg-primary rounded shadow-sm p-3" @click="getBigFact(state.fact.id)">
         <div class="row">
           <h5 class="col-12 border-bottom pt-0 pb-1">
-            {{ factProp.name }}
+            {{ state.fact.name }}
           </h5>
           <div class="col-12 p-2">
-            {{ factProp.text }}
+            {{ state.fact.text }}
           </div>
           <div class="col-12">
-            <i v-for="(star, i) in factProp.stars" :key="i" class="bi bi-star"></i>
+            <i v-for="(star, i) in fact.stars" :key="i" class="bi bi-star"></i>
           </div>
         </div>
       </div>
