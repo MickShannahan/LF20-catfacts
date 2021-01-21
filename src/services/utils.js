@@ -1,10 +1,12 @@
 
-const sur = ['Mr. ', 'Lady ', 'Sir ', 'Professor ', 'Capitan ', 'Mayor ', 'Mc ', 'Master ', 'Prime Meowster ', 'Gran-', 'Madam ', 'Her Royal Highness ', 'Duchess ', 'Baroness ', 'Countess ', 'Mistress ', 'Vice Chancellor ', 'Elder ', 'The Venerable ', '']
-const start = ['Wiggle', 'Fuzz', 'Mouse', 'Frisk', 'Scruf', 'Hairy', 'Klaus', 'Mocha', 'Mert', 'Poppy', 'Butter', 'Caramel', '', 'Potato', 'Nip', 'Bean', 'Vanilla', 'Snibbly', 'Filtch', 'Norris', 'Grumpy', 'Whisker', 'Simba', 'Teddy', 'Abraham', 'Taco', 'Bert', 'Bern', 'Tiger']
-const end = ['bum', '-buttons', 'ington', ' esquire', 'mellow', 'wumps', 'worth', ' Blackwell', ' O,neal', ' .jr', 'butt', 'smith', 'bottom', 'paws', 'loaf', 'ordinal']
+const sur = ['Mr. ', 'Lady ', 'Sir ', 'Big ', 'Professor ', 'Capitan ', 'Mayor ', 'Mc ', 'Master ', 'Prime Meowster ', 'Gran-', 'Madam ', 'Her Royal Highness ', 'Duchess ', 'Baroness ', 'Countess ', 'Mistress ', 'Vice Chancellor ', 'Elder ', 'The Venerable ', '']
+const start = ['Fizz', 'Wiggle', 'Fuzz', 'Mouse', 'Frisk', 'Scruf', 'Hairy', 'Klaus', 'Mocha', 'Mert', 'Poppy', 'Butter', 'Caramel', '', 'Potato', 'Nip', 'Bean', 'Vanilla', 'Snibbly', 'Filtch', 'Norris', 'Grumpy', 'Whisker', 'Simba', 'Teddy', 'Abraham', 'Taco', 'Bert', 'Bern', 'Tiger']
+const end = ['s', 'bum', '-buttons', 'ington', ' esquire', 'mellow', 'wumps', 'worth', ' Blackwell', ' O,neal', ' .jr', 'butt', 'smith', 'bottom', 'paws', 'loaf', 'ordinal', 'buzz', '-shakur']
 
 export function catNameGenerator() {
-  const part1 = sur[Math.floor(Math.random() * sur.length)]
+  const num = Math.ceil(Math.random() * 3)
+  let part1 = ''
+  if (num > 1) part1 = sur[Math.floor(Math.random() * sur.length)]
   const part2 = start[Math.floor(Math.random() * start.length)]
   let part3 = end[Math.floor(Math.random() * end.length)]
   part3 = part3 === 'ordinal' ? ordinal() : part3
