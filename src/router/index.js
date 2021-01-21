@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // @ts-ignore
+import ActiveFactPage from '../pages/FactPage.vue'
+// @ts-ignore
 import Home from '../pages/Home.vue'
 // @ts-ignore
 import Profile from '../pages/Profile.vue'
@@ -10,6 +12,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/facts/:id',
+    name: 'FactPage',
+    component: ActiveFactPage
   },
   {
     path: '/profile',

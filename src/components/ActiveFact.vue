@@ -16,10 +16,18 @@
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row justify-content-center">
-                <img :src="picture" class="img-fluid">
-                <h4 class="text-light p-2">
-                  {{ fact.text }}
-                </h4>
+                <div class="col-8">
+                  <img :src="picture" class="img-fluid">
+                </div>
+                <div class="col-6 text-light p-2">
+                  <h4 class="">
+                    {{ fact.name }}
+                  </h4>
+                  <p>{{ fact.text }}</p>
+                  <div class="col-12">
+                    <i v-for="(star, i) in fact.stars" :key="i" class="bi bi-star"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

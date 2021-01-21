@@ -15,7 +15,7 @@
 <script>
 import { AppState } from '../AppState'
 import { computed, onMounted } from 'vue'
-import { factService } from '../services/CatService'
+import { catService } from '../services/CatService'
 import CatComponent from '../components/CatComponent'
 import ActiveFact from '../components/ActiveFact'
 export default {
@@ -23,7 +23,8 @@ export default {
   components: { CatComponent, ActiveFact },
   setup() {
     onMounted(() =>
-      factService.getFacts())
+      catService.getFacts(),
+    catService.getFacts())
     return {
       facts: computed(() => AppState.facts)
     }

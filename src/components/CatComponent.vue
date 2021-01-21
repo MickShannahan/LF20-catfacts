@@ -1,40 +1,58 @@
 <template>
   <div class="Cat card border-0 col-4 p-2 bg-transparent text-light">
     <div class=" row justify-content-center">
-      <div class="col-2">
-        <img :src="'https://thiscatdoesnotexist.com/?number='+ indexProp" class="img-fluid rounded">
+      <div class="col-3 mr-0 pr-0 pl-4">
+        <img :src="state.catImage + indexProp" class="img-fluid rounded">
       </div>
-      <div class="col-10 bg-primary rounded shadow-sm p-3" @click="getBigFact">
-        {{ factProp.text }}
+      <div class="col bg-primary rounded shadow-sm p-3" @click="getBigFact(factProp.id)">
+        <div class="row">
+          <h5 class="col-12 border-bottom pt-0 pb-1">
+            {{ factProp.name }}
+          </h5>
+          <div class="col-12 p-2">
+            {{ factProp.text }}
+          </div>
+          <div class="col-12">
+            <i v-for="(star, i) in factProp.stars" :key="i" class="bi bi-star"></i>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
-import { factService } from '../services/CatService'
-import $ from 'jquery'
+import { reactive, computed, onMounted } from 'vue'
+import { catService } from '../services/CatService'
 import { AppState } from '../AppState'
+import { useRouter } from 'vue-router'
 export default {
-  name: 'Cat',
+  name: 'CatComponent',
   props: ['factProp', 'indexProp'],
   setup(props) {
+    const router = useRouter()
     const state = reactive({
-      fact: props.factProp
+      fact: computed(() => props.factProp),
+      catImage: ''
 
     })
-    function getBigFact() {
-      factService.getCatPicture()
+    function getBigFact(id) {
+      catService.getCatPicture()
       AppState.activeFact = state.fact
-      $('#catModal').modal('toggle')
+      router.push({ path: '/facts/' + id })
     }
-    return { state, getBigFact }
+    function getUniqueCat() {
+      setTimeout(() => { state.catImage = 'https://thiscatdoesnotexist.com/?v= ' }, 1150 * props.indexProp - 1)
+    }
+    onMounted(() => getUniqueCat())
+    return { state, getBigFact, getUniqueCat }
   }
 }
 </script>
 
 <style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 .Cat{
   transition: all .3s ease;
 }
