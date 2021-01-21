@@ -1,6 +1,6 @@
 import Axios from 'axios'
 export const api = Axios.create({
-  baseURL: 'https://catfact.ninja/',
+  baseURL: '//catfact.ninja/facts?',
   timeout: 3000
 })
 

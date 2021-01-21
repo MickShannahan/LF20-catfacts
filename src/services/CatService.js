@@ -5,9 +5,8 @@ import { catNameGenerator, generateId } from './utils'
 class CatService {
   async getFacts() {
     try {
-      const res = await api.get('/facts?limit=100')
-      console.log('cat facts', res.data.data)
-      AppState.facts = res.data.data.map(cat => new Cat(cat))
+      const res = await api.get('limit=100')
+      AppState.facts = res.data.map(cat => new Cat(cat))
     } catch (err) {
       console.error(err)
     }
@@ -26,7 +25,6 @@ class CatService {
   async getCatPicture() {
     try {
       const res = await pictureApi.get('search')
-      console.log('cat picture', res.data[0].url)
       AppState.catPicture = res.data[0].url
     } catch (error) {
       console.error(error)
@@ -34,7 +32,7 @@ class CatService {
   }
 }
 
-export const catService = new CatService()
+export const catsService = new CatService()
 
 // THE BELOW CLASS IS ONLY HERE TO SIMULATE OBJECTS FROM THE CATFACTS API AS OBJECTS FROM OUR DATABASE
 // CLASSES COULD BE UTILIZED IN A SIMILAR WAY TO SANITIZE INCOMING DATA
